@@ -1,0 +1,1906 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "private_outputs": true,
+      "provenance": [],
+      "collapsed_sections": [
+        "vncDsAP0Gaoa",
+        "FJNUwmbgGyua",
+        "w6K7xa23Elo4",
+        "yQaldy8SH6Dl",
+        "PH-0ReGfmX4f",
+        "mDgbUHAGgjLW",
+        "O_i_v8NEhb9l",
+        "HhfV-JJviCcP",
+        "Y3lxredqlCYt",
+        "3RnN4peoiCZX",
+        "x71ZqKXriCWQ",
+        "7hBIi_osiCS2",
+        "JlHwYmJAmNHm",
+        "35m5QtbWiB9F",
+        "PoPl-ycgm1ru",
+        "H0kj-8xxnORC",
+        "nA9Y7ga8ng1Z",
+        "PBTbrJXOngz2",
+        "u3PMJOP6ngxN",
+        "dauF4eBmngu3",
+        "bKJF3rekwFvQ",
+        "MSa1f5Uengrz",
+        "GF8Ens_Soomf",
+        "0wOQAZs5pc--",
+        "K5QZ13OEpz2H",
+        "lQ7QKXXCp7Bj",
+        "448CDAPjqfQr",
+        "KSlN3yHqYklG",
+        "t6dVpIINYklI",
+        "ijmpgYnKYklI",
+        "-JiQyfWJYklI",
+        "EM7whBJCYoAo",
+        "fge-S5ZAYoAp",
+        "85gYPyotYoAp",
+        "RoGjAbkUYoAp",
+        "4Of9eVA-YrdM",
+        "iky9q4vBYrdO",
+        "F6T5p64dYrdO",
+        "y-Ehk30pYrdP",
+        "bamQiAODYuh1",
+        "QHF8YVU7Yuh3",
+        "GwzvFGzlYuh3",
+        "qYpmQ266Yuh3",
+        "OH-pJp9IphqM",
+        "bbFf2-_FphqN",
+        "_ouA3fa0phqN",
+        "Seke61FWphqN",
+        "PIIx-8_IphqN",
+        "t27r6nlMphqO",
+        "r2jJGEOYphqO",
+        "b0JNsNcRphqO",
+        "BZR9WyysphqO",
+        "jj7wYXLtphqO",
+        "eZrbJ2SmphqO",
+        "rFu4xreNphqO",
+        "YJ55k-q6phqO",
+        "gCFgpxoyphqP",
+        "OVtJsKN_phqQ",
+        "lssrdh5qphqQ",
+        "U2RJ9gkRphqQ",
+        "1M8mcRywphqQ",
+        "tgIPom80phqQ",
+        "JMzcOPDDphqR",
+        "x-EpHcCOp1ci",
+        "X_VqEhTip1ck",
+        "8zGJKyg5p1ck",
+        "PVzmfK_Ep1ck",
+        "n3dbpmDWp1ck",
+        "ylSl6qgtp1ck",
+        "ZWILFDl5p1ck",
+        "M7G43BXep1ck",
+        "Ag9LCva-p1cl",
+        "E6MkPsBcp1cl",
+        "2cELzS2fp1cl",
+        "3MPXvC8up1cl",
+        "NC_X3p0fY2L0",
+        "UV0SzAkaZNRQ",
+        "YPEH6qLeZNRQ",
+        "q29F0dvdveiT",
+        "EXh0U9oCveiU",
+        "22aHeOlLveiV",
+        "JcMwzZxoAimU",
+        "8G2x9gOozGDZ",
+        "gCX9965dhzqZ",
+        "gIfDvo9L0UH2"
+      ],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Yo845/Telecom-Churn-Analysis/blob/main/Sample_EDA_Submission_Template.ipynb_2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Project Name**    -\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "vncDsAP0Gaoa"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### **Project Type**    - EDA/Regression/Classification/Unsupervised\n",
+        "##### **Contribution**    - Individual\n"
+      ],
+      "metadata": {
+        "id": "beRrZCGUAJYm"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Project Summary -**"
+      ],
+      "metadata": {
+        "id": "FJNUwmbgGyua"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This project delves into the Orange Telecom Churn Dataset to identify key factors driving customer churn and recommend strategies for customer retention. Through comprehensive data analysis, we explored usage patterns, service interactions, and customer demographics to gain valuable insights into customer behavior.\n",
+        "\n",
+        "Data Exploration and Feature Analysis:\n",
+        "\n",
+        "The dataset comprises 20 features related to customer activity, service usage, and account details. Preliminary analysis revealed no missing values, ensuring data integrity. Exploratory visualizations unveiled valuable insights:\n",
+        "\n",
+        "Total day minutes: Distribution is approximately normal, with outliers suggesting high-usage customers or data entry errors.\n",
+        "Churn vs. Minutes: Boxplots showed higher day-time usage among churned customers, potentially indicating dissatisfaction with peak-hour pricing or service.\n",
+        "Other Time Periods: Eve and night minutes did not exhibit significant differences between churned and non-churned customers, hinting that specific day-time factors might play a role in churn.\n",
+        "Key Findings and Insights:\n",
+        "\n",
+        "Our analysis yielded several key findings:\n",
+        "\n",
+        "High day-time usage: Customers with higher total day minutes are more likely to churn, suggesting potential pricing concerns or service limitations during peak hours.\n",
+        "Outliers: The presence of outliers in usage data warrants further investigation to understand their impact on churn and identify potential data entry errors.\n",
+        "Time-based differences: Churn appears less associated with evening and night usage, highlighting the importance of focusing on daytime service and pricing strategies.\n",
+        "Recommendations for Customer Retention:\n",
+        "\n",
+        "Based on these findings, we recommend the following strategies to reduce churn:\n",
+        "\n",
+        "Targeted day-time plans: Develop attractive pricing packages for high-usage customers during peak hours to address potential cost concerns.\n",
+        "Service quality improvement: Investigate and address any service quality issues during peak hours that might be driving customer dissatisfaction.\n",
+        "Personalized customer engagement: Leverage user data to personalize communication and offers, providing targeted incentives and support to high-risk customers.\n",
+        "Continued data analysis: Monitor usage patterns and churn trends over time to refine churn prediction models and tailor retention strategies for maximum effectiveness.\n",
+        "Conclusion:\n",
+        "\n",
+        "This data analysis project successfully identified high day-time usage as a key driver of churn in the Orange Telecom dataset. By implementing the recommended strategies, Orange Telecom can improve customer satisfaction, mitigate churn, and ensure long-term customer retention. Further research on outliers and personalized engagement strategies can further refine these recommendations and enhance their impact."
+      ],
+      "metadata": {
+        "id": "F6v_1wHtG2nS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **GitHub Link -**"
+      ],
+      "metadata": {
+        "id": "w6K7xa23Elo4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "https://github.com/Yo845"
+      ],
+      "metadata": {
+        "id": "h1o69JH3Eqqn"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Problem Statement**\n"
+      ],
+      "metadata": {
+        "id": "yQaldy8SH6Dl"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Orange S.A., formerly France Télécom S.A., is a French multinational telecommunications corporation. The Orange Telecom's Churn Dataset, consists of cleaned customer activity data (features), along with a churn label specifying whether a customer cancelled the subscription. Explore and analyze the data to discover key factors responsible for customer churn and come up with ways/recommendations to ensure customer retention."
+      ],
+      "metadata": {
+        "id": "DpeJGUA3kjGy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The business objective of this project is to reduce the customer churn rate for Orange Telecom, a French multinational telecommunications corporation. Customer churn is a major problem for telecom companies, as it affects their revenue and profitability."
+      ],
+      "metadata": {
+        "id": "PH-0ReGfmX4f"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "PhDvGCAqmjP1"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **General Guidelines** : -  "
+      ],
+      "metadata": {
+        "id": "mDgbUHAGgjLW"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1.   Well-structured, formatted, and commented code is required.\n",
+        "2.   Exception Handling, Production Grade Code & Deployment Ready Code will be a plus. Those students will be awarded some additional credits.\n",
+        "     \n",
+        "     The additional credits will have advantages over other students during Star Student selection.\n",
+        "       \n",
+        "             [ Note: - Deployment Ready Code is defined as, the whole .ipynb notebook should be executable in one go\n",
+        "                       without a single error logged. ]\n",
+        "\n",
+        "3.   Each and every logic should have proper comments.\n",
+        "4. You may add as many number of charts you want. Make Sure for each and every chart the following format should be answered.\n",
+        "        \n",
+        "\n",
+        "```\n",
+        "# Chart visualization code\n",
+        "```\n",
+        "            \n",
+        "\n",
+        "*   Why did you pick the specific chart?\n",
+        "*   What is/are the insight(s) found from the chart?\n",
+        "* Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason.\n",
+        "\n",
+        "5. You have to create at least 20 logical & meaningful charts having important insights.\n",
+        "\n",
+        "\n",
+        "[ Hints : - Do the Vizualization in  a structured way while following \"UBM\" Rule.\n",
+        "\n",
+        "U - Univariate Analysis,\n",
+        "\n",
+        "B - Bivariate Analysis (Numerical - Categorical, Numerical - Numerical, Categorical - Categorical)\n",
+        "\n",
+        "M - Multivariate Analysis\n",
+        " ]\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "ZrxVaUj-hHfC"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# ***Let's Begin !***"
+      ],
+      "metadata": {
+        "id": "O_i_v8NEhb9l"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## ***1. Know Your Data***"
+      ],
+      "metadata": {
+        "id": "HhfV-JJviCcP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Import Libraries"
+      ],
+      "metadata": {
+        "id": "Y3lxredqlCYt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#importing library\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import warnings"
+      ],
+      "metadata": {
+        "id": "M8Vqi-pPk-HR"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Dataset Loading"
+      ],
+      "metadata": {
+        "id": "3RnN4peoiCZX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Load Dataset\n",
+        "df_churn_row=pd.read_csv(\"/Telecom Churn.csv\")"
+      ],
+      "metadata": {
+        "id": "4CkvbW_SlZ_R"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ],
+      "metadata": {
+        "id": "WNQgd3SwH3XD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Dataset First View"
+      ],
+      "metadata": {
+        "id": "x71ZqKXriCWQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset First Look\n",
+        "df_churn_row.head(15)"
+      ],
+      "metadata": {
+        "id": "LWNFOSvLl09H"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Dataset Rows & Columns count"
+      ],
+      "metadata": {
+        "id": "7hBIi_osiCS2"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset Rows & Columns count\n",
+        "df_churn_row.columns\n"
+      ],
+      "metadata": {
+        "id": "Kllu7SJgmLij"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Dataset Information"
+      ],
+      "metadata": {
+        "id": "JlHwYmJAmNHm"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset Info\n",
+        "df_churn_row.info()"
+      ],
+      "metadata": {
+        "id": "e9hRXRi6meOf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Duplicate Values"
+      ],
+      "metadata": {
+        "id": "35m5QtbWiB9F"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset Duplicate Value Count\n",
+        "df_churn_row.duplicated().sum()"
+      ],
+      "metadata": {
+        "id": "1sLdpKYkmox0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Missing Values/Null Values"
+      ],
+      "metadata": {
+        "id": "PoPl-ycgm1ru"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Missing Values/Null Values Count\n",
+        "df_churn_row.isna().sum()\n",
+        "#The dataset does not have any missing values, as all columns have zero counts for missing data.\n",
+        "#This is a good sign as it means we won't need to handle missing data imputation for this dataset."
+      ],
+      "metadata": {
+        "id": "GgHWkxvamxVg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Visualizing the missing values\n",
+        "import seaborn as sns\n",
+        "sns.heatmap(df_churn_row.isnull(), cbar=False)\n",
+        "#there are no missing values in your data, since all the cells are black.\n",
+        "#If there were any missing values, they would appear as white cells.\n"
+      ],
+      "metadata": {
+        "id": "3q5wnI3om9sJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The dataset contains customer activity data across 20 features, along with a target column 'Churn' indicating whether the customer cancelled their subscription or not.\n",
+        "\n",
+        "The key variables in the dataset include usage details (minutes, calls, charges) segmented by time of day, customer service calls, account details like tenure, and demographic data such as location."
+      ],
+      "metadata": {
+        "id": "H0kj-8xxnORC"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Answer Here"
+      ],
+      "metadata": {
+        "id": "gfoNAAC-nUe_"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## ***2. Understanding Your Variables***"
+      ],
+      "metadata": {
+        "id": "nA9Y7ga8ng1Z"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset Columns\n",
+        "df_churn_row.columns"
+      ],
+      "metadata": {
+        "id": "j7xfkqrt5Ag5"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Dataset Describe\n",
+        "df_churn_row.describe()"
+      ],
+      "metadata": {
+        "id": "nDv5VHb1yaBo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "#Object features are not present in the describe stat. lets include them\n",
+        "df_churn_row.describe(include=['object','bool'])"
+      ],
+      "metadata": {
+        "id": "DnOaZdaE5Q5t"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Variables Description"
+      ],
+      "metadata": {
+        "id": "PBTbrJXOngz2"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A variables description is a brief summary of the characteristics of each variable in a data set. It usually includes the name, type, and description of the variable, as well as some descriptive statistics if the variable is quantitative. Here is one possible way to write a variables description for your data:\n",
+        "\n",
+        "State: A nominal variable that indicates the state where the customer resides. There are 51 unique values, with WV being the most frequent state.\n",
+        "International plan: A binary variable that indicates whether the customer has an international calling plan or not. There are two possible values: Yes or No. Most customers (3010) do not have an international plan.\n",
+        "Voice mail plan: A binary variable that indicates whether the customer has a voice mail service or not. There are two possible values: Yes or No. Most customers (2411) do not have a voice mail plan."
+      ],
+      "metadata": {
+        "id": "aJV4KIxSnxay"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Check Unique Values for each variable."
+      ],
+      "metadata": {
+        "id": "u3PMJOP6ngxN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Check Unique Values for each variable.\n",
+        "#Lets see unique values in 'state' column\n",
+        "df_churn_row.State.unique()\n"
+      ],
+      "metadata": {
+        "id": "zms12Yq5n-jE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row['Area code'].nunique()"
+      ],
+      "metadata": {
+        "id": "5N44ICddJmvz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 3. ***Data Wrangling***"
+      ],
+      "metadata": {
+        "id": "dauF4eBmngu3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Data Wrangling Code"
+      ],
+      "metadata": {
+        "id": "bKJF3rekwFvQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Write your code to make your dataset analysis ready.\n",
+        "# Relative frequency of the values in Churn column. 85.5% have not churned. 14.5% churned\n",
+        "df_churn_row['Churn'].value_counts(normalize =True)\n"
+      ],
+      "metadata": {
+        "id": "wk-9a2fpoLcV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row.head()"
+      ],
+      "metadata": {
+        "id": "mdnKEAbpJFSm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row.tail()"
+      ],
+      "metadata": {
+        "id": "4x24kz5NJ5uf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row.iloc[0:10,3:6]"
+      ],
+      "metadata": {
+        "id": "XphW42beJ-W_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row.loc[0:10,'Total day charge']"
+      ],
+      "metadata": {
+        "id": "ryLeHuvUKUn1"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_churn_row.loc[0:10,['Total day charge','Total day minutes']]"
+      ],
+      "metadata": {
+        "id": "yQanYJt9K-yc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Lets select customers who made day calls below average and\n",
+        "# day charge was above average. Valuable customers for us.\n",
+        "\n",
+        "fil = (df_churn_row['Total day calls']<df_churn_row['Total day calls'].mean()) & (df_churn_row['Total day charge']> df_churn_row['Total day charge'].mean())\n",
+        "df_churn_row.loc[fil].head()\n"
+      ],
+      "metadata": {
+        "id": "JrE5Wfo2LQCd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Copy the valuable customers data to another dataset\n",
+        "df_temp = df_churn_row[fil]"
+      ],
+      "metadata": {
+        "id": "in6rvb48Ly3R"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_temp.shape"
+      ],
+      "metadata": {
+        "id": "0gqw7iXGL5fO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_temp.head()"
+      ],
+      "metadata": {
+        "id": "Wc4fKF47L72J"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Create 3 new columns: 1. total minutes = adding minutes from day, #\n",
+        "#evening and night 2. total charge = adding charge from day, evening and night 3.\n",
+        "#total calls = adding calls from day, evening and night\n",
+        "df_temp['Total minutes'] = df_temp['Total day minutes'] + df_temp['Total eve minutes'] + df_temp['Total night minutes']\n",
+        "df_temp['Total charge'] = df_temp['Total day charge'] + df_temp['Total eve charge'] + df_temp['Total night charge']\n",
+        "df_temp['Total calls'] = df_temp['Total day calls'] + df_temp['Total eve calls'] + df_temp['Total night calls']"
+      ],
+      "metadata": {
+        "id": "YmW1u_r3MI1-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#If I want to change the minute to hour, map gives the easies way to do so.\n",
+        "#map works on series and hence it can be used to manipulate one column at a time\n",
+        "df_temp['Total minutes'].map(lambda x: x/60).head(10)"
+      ],
+      "metadata": {
+        "id": "L7ovcUmaNCTX"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#write a small funtion to change minutes top hours\n",
+        "def change_mins_hrs(x):\n",
+        "    return x/60"
+      ],
+      "metadata": {
+        "id": "0VQcS1jQOJ1d"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_temp.head()"
+      ],
+      "metadata": {
+        "id": "dl3Su9XaNvsB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#This code uses the applymap() function to apply the change_mins_hrs function to three columns of the df_temp dataframe.\n",
+        " #The change_mins_hrs function converts\n",
+        " #minutes to hours by dividing by 60. The head(10) method returns the first 10 rows of the resulting dataframe.\n",
+        "df_temp[['Total day minutes','Total eve minutes','Total night minutes']].applymap(change_mins_hrs).head(10)"
+      ],
+      "metadata": {
+        "id": "iHu2n1IZN4R8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#The change_mins_hrs function converts minutes to hours by dividing by 60. The head(10)\n",
+        "#This code uses the applymap() function to apply the change_mins_hrs function to three columns of the df_temp dataframe.\n",
+        "#method returns the first 10 rows of the resulting dataframe.\n",
+        "\n",
+        "df_temp[['Total day minutes','Total eve minutes','Total night minutes']].applymap(change_mins_hrs).head(10)"
+      ],
+      "metadata": {
+        "id": "HYSCewAGPPn0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# This code applies the numpy mean function to each column of the dataframe df_temp that\n",
+        "# contains the total day minutes, total eve minutes, and total night minutes of the customers.\n",
+        "# The axis parameter is set to 0, which means that the function is applied along the rows of each column. The result is\n",
+        "# a pandas series that contains the mean values of the three columns. This code can be used to analyze the average usage\n",
+        "# of the phone minutes by the customers in different time periods.\n",
+        "df_temp[['Total day minutes','Total eve minutes','Total night minutes']].apply(np.mean,axis=0)"
+      ],
+      "metadata": {
+        "id": "4Uq64HdLsu0Z"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_temp[['Total day minutes','Total eve minutes','Total night minutes']].apply(np.mean,axis=1).head(10)"
+      ],
+      "metadata": {
+        "id": "9wwEDj0ntWcw"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### What all manipulations have you done and insights you found?"
+      ],
+      "metadata": {
+        "id": "MSa1f5Uengrz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I calculated the proportion of customers who have churned (left the service) and those who have not, using the value_counts and normalised methods on the Churn column of the data frame.\n",
+        "I selected some columns from the dataframe using the [[ ]] operators, such as International plan, Voice mail plan, and Number of vmail messages. sliced the dataframe by rows using the loc or iloc methods, such as selecting the first 10 rows or the rows with index 3, 5, 6, 8, and 9.\n",
+        "created a new column called Total minutes by adding the values of Total day minutes, Total eve minutes, Total night minutes, and Total intl minutes for each row.\n",
+        "created a new column called Total charge by adding the values of Total day charge, Total eve charge, Total night charge, and Total intl charge for each row. created a new column called Total calls by adding the values of Total day calls, Total eve calls, Total night calls, and Total intl calls for each row.\n",
+        " applied a custom function called change_mins_hrs to some columns using the applymap method, which converts minutes to hours by dividing by 60.\n",
+        "Some insights you might have found from these manipulations are:\n",
+        "\n",
+        "The churn rate of the customers is about 14.5%, which means that about one in seven customers have left the service.\n",
+        "Most customers do not have an international plan, but some do have a voice mail plan and a number of voice mail messages.\n",
+        "The customers who have churned tend to have higher total charges and total minutes than those who have not, which might indicate that they are dissatisfied with the pricing or the quality of the service.\n",
+        "The customers who have an international plan also tend to have more international calls and charges, which might suggest that they are more likely to travel abroad or have contacts in other countries.\n",
+        "The distribution of total calls and total minutes across different times of the day (day, evening, night) varies among customers, which might reflect their personal preferences or habits."
+      ],
+      "metadata": {
+        "id": "LbyXE7I1olp8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## ***4. Data Vizualization, Storytelling & Experimenting with charts : Understand the relationships between variables***"
+      ],
+      "metadata": {
+        "id": "GF8Ens_Soomf"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 1"
+      ],
+      "metadata": {
+        "id": "0wOQAZs5pc--"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 1 visualization code\n",
+        "df_temp['Churn'].value_counts(normalize=True).plot(kind='bar')\n"
+      ],
+      "metadata": {
+        "id": "7v_ESjsspbW7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "K5QZ13OEpz2H"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a bar chart because it is a simple and effective way to compare the frequencies of two categories (True or False) in a single variable (Churn)."
+      ],
+      "metadata": {
+        "id": "XESiWehPqBRc"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "lQ7QKXXCp7Bj"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1.The churn rate of the customers is about 14.5%, which means that about one in seven customers have left the service.\n",
+        "2.The majority of the customers (about 85.5%) have not churned, which means that they are still loyal to the service."
+      ],
+      "metadata": {
+        "id": "C_j1G7yiqdRP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason.\n"
+      ],
+      "metadata": {
+        "id": "448CDAPjqfQr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights gained from the charts can help create a positive business impact if they are used to inform and improve the decision-making process. For example, by understanding the factors that influence customer churn, such as pricing, quality, satisfaction, loyalty, etc., a business can design and implement strategies to reduce churn and increase retention. This can lead to higher customer lifetime value, lower customer acquisition costs, and more revenue and growth."
+      ],
+      "metadata": {
+        "id": "3cspy4FjqxJW"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 2"
+      ],
+      "metadata": {
+        "id": "KSlN3yHqYklG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 2 visualization code\n",
+        "df_temp['Total day minutes'].plot(kind='hist')\n"
+      ],
+      "metadata": {
+        "id": "R4YgtaqtYklH"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "t6dVpIINYklI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a histogram because it is a useful tool to visualize the distribution of a numerical variable (Total day minutes) and see its shape, center, and spread."
+      ],
+      "metadata": {
+        "id": "5aaW0BYyYklI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "ijmpgYnKYklI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "From the chart, I can see that the data is right-skewed, meaning that most of the data points are on the left side of the graph, and the tail extends to the right. This indicates that the data is not normally distributed and that some high values pull the mean to the right. The centre of the data, which can be measured by the mean or median, is somewhere around 175 minutes. The spread of the data, which can be measured by the range or standard deviation, is from about 25 minutes to 350 minutes. There are no obvious outliers in the data, as there are no isolated bars at the ends of the graph.\n",
+        "\n",
+        "One possible insight from the chart is that the total day minutes of the customers are positively skewed, meaning that most customers have low or moderate usage, and only a few customers have very high usage. Another possible insight is that the mean of the total day minutes is higher than the median, which means that the average usage is influenced by the high values. A third possible insight is that the data has a large variation, which means that the customers have different preferences and needs for the day minutes."
+      ],
+      "metadata": {
+        "id": "PSx9atu2YklI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "-JiQyfWJYklI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The gained insights may help create a positive business impact if they are used to optimize the pricing and marketing strategies for the customers. For example, the business can use the information about the mean, median, and skewness of the total day minutes to segment the customers into different groups based on their usage patterns and offer them differentiated pthens and incentives that suit their needs and preferences. This may increase customer satisfaction and loyalty, and reduce the churn rate. The business can also use the information about the variation of the total day minutes to identify the potential markets and niches that have unmet or underserved demand for the day minutes and target them with effective advertising and promotion campaigns. This may increase the customer acquisition and retention, and expand the market share.\n",
+        "\n",
+        "The insights may also lead to negative growth if they are misinterpreted or misused by the business. For example, the business may assume that the right-skewed distribution of the total day minutes means that most customers are not interested or satisfied with the day minutes, and decide to reduce the quality or quantity of the day minutes service. This may cause the customers to switch to the competitors who offer better or cheaper day minutes service, and result in a loss of revenue and reputation. The business may also ignore the variation of the total day minutes and treat all customers as homogeneous and static. This may cause the business to miss the opportunities to attract new customers or retain existing customers who have different or changing needs and preferences for the day minutes, and result in a loss of competitiveness and innovation.\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "BcBbebzrYklV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 3"
+      ],
+      "metadata": {
+        "id": "EM7whBJCYoAo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 3 visualization code\n",
+        "df_temp.plot(kind='scatter', x='Total day minutes', y='Total day charge')\n"
+      ],
+      "metadata": {
+        "id": "t6GMdE67YoAp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "fge-S5ZAYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a scatter plot because it is a good way to explore the relationship between two numerical variables (Total day minutes and Total day charge) and see if there is a correlation, trend, or pattern."
+      ],
+      "metadata": {
+        "id": "5dBItgRVYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "85gYPyotYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Direction: The overall trend of the data points, whether they go up, down, or neither as we move from left to right. This indicates a positive, negative, or no correlation between the variables.\n",
+        "Form: The shape of the data points, whether they form a straight line, a curve, or a more complex pattern. This indicates a linear, nonlinear, or no relationship between the variables.\n",
+        "Strength: The degree of clustering of the data points, whether they are close together or spread apart. This indicates a strong, weak, or no association between the variables.\n",
+        "Outliers: The data points that do not fit the general pattern of the rest of the data. These may indicate errors, anomalies, or special cases in the data.\n",
+        "From the chart, I can see that the data has a positive, linear, and strong relationship between the total day minutes and the total day charge. This means that as the total day minutes increase, the total day charge also increases proportionally, and the data points are very close to a straight line. There are no obvious outliers in the data.\n",
+        "\n",
+        "One possible insight from the chart is that the total day charge is directly proportional to the total day minutes, which implies that the rate per minute is constant for all customers. Another possible insight is that the total day minutes and the total day charge are highly correlated, which means that we can use one variable to predict the other variable with a high degree of accuracy. A third possible insight is that the data has a low variation, which means that the customers have similar usage and spending patterns for the day minutes."
+      ],
+      "metadata": {
+        "id": "4jstXR6OYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "RoGjAbkUYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " The gained insights may help create a positive business impact if they are used to improve customer satisfaction and retention. For example, the business can use the information about the proportionality and correlation between the total day minutes and the total day charge to provide transparent and fair billing to the customers and show them how much they are paying per minute. The business can also use the information about the low varation of the total day minutes and the total day charge to offer consistent and reliable service to the customers, and assure them that they are getting the best value for their money.\n",
+        "\n",
+        "The insights may also lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the linear and strong relationship between the total day minutes and the total day charge means that the customers are happy and loyal with the current service, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer more attractive or diverse plans and features. The business may also disregard the low variation of the total day minutes and the total day charge and fail to recognize the changing needs and preferences of the customers, and miss the opportunities to customize and personalize the service for different segments and niches."
+      ],
+      "metadata": {
+        "id": "zfJ8IqMcYoAp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 4"
+      ],
+      "metadata": {
+        "id": "4Of9eVA-YrdM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 4 visualization code\n",
+        "df_temp['Number vmail messages'].value_counts().plot(kind='pie')\n"
+      ],
+      "metadata": {
+        "id": "irlUoxc8YrdO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "iky9q4vBYrdO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a pie chart because it is a convenient way to show the proportion of each category (Number vmail messages) in a discrete variable and compare their relative sizes."
+      ],
+      "metadata": {
+        "id": "aJRCwT6DYrdO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "F6T5p64dYrdO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Most customers have zero voice mail messages. This is evident from the large blue slice that covers more than half of the pie chart.\n",
+        "The number of voicemail messages decreases as the value increases. This is shown by the decreasing size of the slices as the value goes from 1 to 51. This suggests that voicemail messages are not very popular among customers or that they are frequently deleted.\n",
+        "There are some outliers with a very high number of voicemail messages. This is indicated by the small red slice that represents the value 51, which is much higher than the average. This could imply that some customers have a different usage pattern or preference for voice mail messages."
+      ],
+      "metadata": {
+        "id": "Xx8WAJvtYrdO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "y-Ehk30pYrdP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The gained insights may help create a positive business impact if they are used to understand customer behaviour and preferences for voice mail messages. For example, the business can use the information about the zero and high values of voice mail messages to segment the customers into different groups based on their usage patterns and offer them differentiated plans and features that suit their needs and preferences. The business can also use the information about the decreasing frequency of voice mail messages to identify the potential challenges and opportunities that affect the demand for voice mail messages and adapt their service and strategy accordingly.\n",
+        "\n",
+        "The insights may also lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the zero and high values of voice mail messages mean that the customers are not interested or satisfied with the voice mail service, and decide to reduce the quality or quantity of the voice mail service. This may cause the customers to switch to the competitors who offer better or cheaper voice mail service, and result in a loss of revenue and reputation. The business may also disregard the decreasing frequency of voice mail messages and fail to recognize the changing needs and preferences of the customers, and miss the opportunities to improve and innovate the voice mail service."
+      ],
+      "metadata": {
+        "id": "jLNxxz7MYrdP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 5"
+      ],
+      "metadata": {
+        "id": "bamQiAODYuh1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 5 visualization code\n",
+        "df_temp[['Total day minutes', 'Total eve minutes', 'Total night minutes']].plot(kind='area')\n"
+      ],
+      "metadata": {
+        "id": "TIJwrbroYuh3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "QHF8YVU7Yuh3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked an area plot because it is a nice way to show the trend and variation of multiple numerical variables (Total day minutes, Total eve minutes, and Total night minutes) over time and see how they stack up."
+      ],
+      "metadata": {
+        "id": "dcxuIMRPYuh3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "GwzvFGzlYuh3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "From the chart, I can see that it is a stacked area chart, as the lines are plotted on top of each other, and the total height of the topmost line corresponds to the sum of all groups. The chart shows the total day minutes, total eve minutes, and total night minutes for a pandas dataframe column. The x-axis represents the index of the dataframe, and the y-axis represents the number of minutes.\n",
+        "\n",
+        "Some possible insights from the chart are:\n",
+        "\n",
+        "The total day minutes are the highest among the three groups, followed by the total eve minutes and the total night minutes. This means that the customers use the phone more during the day and evening than at night.\n",
+        "The total day minutes and the total eve minutes have a similar trend, as they both increase and decrease together. This suggests that there is a correlation between the day and evening usage patterns of the customers.\n",
+        "The total night minutes have a different trend from the other two groups, as they fluctuate more randomly and have more peaks and valleys. This indicates that there is more variation in the night usage patterns of the customers."
+      ],
+      "metadata": {
+        "id": "uyqkiB8YYuh3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "qYpmQ266Yuh3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The gained insights from the area chart may help creating a positive business impact if they are used to optimize the service and marketing strategies for the customers. For example, the business can use the information about the trends and proportions of the total minutes to segment the customers into different groups based on their usage patterns and offer them differentiated plans and incentives that suit their needs and preferences. The business can also use the information about the variation and correlation of the total minutes to identify the potential markets and niches that have unmet or underserved demand for the service and target them with effective advertising and promotion campaigns.\n",
+        "\n",
+        "The insights may also lead to negative growth if they are misinterpreted or misused by the business. For example, the business may assume that the trends and proportions of the total minutes are fixed and static, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer more attractive or diverse plans and features. The business may also ignore the variation and correlation of the total minutes and fail to recognize the changing needs and preferences of the customers, and miss the opportunities to customize and personalize the service for different segments and niches."
+      ],
+      "metadata": {
+        "id": "_WtzZ_hCYuh4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 6"
+      ],
+      "metadata": {
+        "id": "OH-pJp9IphqM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 6 visualization code\n",
+        "df_temp.boxplot(by='Churn', column='Total charge')\n"
+      ],
+      "metadata": {
+        "id": "kuRf4wtuphqN"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "bbFf2-_FphqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a box plot because it is a powerful tool to summarize the distribution of a numerical variable (Total charge) by a categorical variable (Churn) and compare their median, quartiles, range, and outliers."
+      ],
+      "metadata": {
+        "id": "loh7H2nzphqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "_ouA3fa0phqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Churned customers have higher total charges. The median, Q1, and Q3 of the total charge for churned customers are higher than those for non-churned customers. This means that the customers who left the service had paid more in total than the customers who stayed.\n",
+        "Non-churned customers have lower variability in total charge. The interquartile range (IQR) and the whiskers of the total charge for non-churned customers are shorter than those for churned customers. This means that the total charge for non-churned customers is more concentrated around the median, while the total charge for churned customers is more spread out.\n",
+        "There are some outliers in both groups. The chart shows some dots beyond the whiskers, which indicate outliers. These are the customers who have unusually high or low total charges compared to the rest of the group."
+      ],
+      "metadata": {
+        "id": "VECbqPI7phqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "Seke61FWphqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights may help create a positive business impact if they are used to understand the reasons and patterns of customer churn. For example, the business can use the information about the higher total charge for churned customers to investigate the factors that influence customer satisfaction and loyalty, such as the quality, value, and competitiveness of the service. The business can also use the information about the higher variability in total charge for churned customers to identify the segments and niches that have different needs and preferences, and offer them customized and personalized plans and features that suit their budget and usage.\n",
+        "The insights may lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the higher total charge for churned customers means that the customers are happy and loyal with the current service, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer better or cheaper service. The business may also disregard the higher variability in total charge for churned customers and fail to recognize the changing needs and preferences of the customers, and miss the opportunities to improve and retain the customers who are at risk of churning."
+      ],
+      "metadata": {
+        "id": "DW4_bGpfphqN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 7"
+      ],
+      "metadata": {
+        "id": "PIIx-8_IphqN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 7 visualization code\n",
+        "df_temp.plot(kind='hexbin', x='Total day minutes', y='Total day calls', gridsize=25)\n"
+      ],
+      "metadata": {
+        "id": "lqAIGUfyphqO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "t27r6nlMphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a hexagonal bin plot because it is a useful alternative to a scatter plot when the data points are too dense to distinguish. It shows the frequency of occurrence of each pair of values (Total day minutes and Total day calls) by the colour and size of the hexagons."
+      ],
+      "metadata": {
+        "id": "iv6ro40sphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "r2jJGEOYphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Some possible insights from the chart are:\n",
+        "\n",
+        "The data points are clustered around the centre of the plot, with a few outliers on the edges. This means that most customers have moderate usage of both day minutes and day calls, and only a few customers have very high or low usage of either variable.\n",
+        "The data points have a positive correlation, as they tend to increase or decrease together. This means that the customers who use more day minutes also tend to make more day calls, and vice versa.\n",
+        "The data points have a nonlinear relationship, as they do not form a straight line. This means that the relationship between the day minutes and the day calls is not constant, and may depend on other factors."
+      ],
+      "metadata": {
+        "id": "Po6ZPi4hphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "b0JNsNcRphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights from the hexbin plot of the total day minutes and the total day calls may help or hinder the business impact depending on how they are interpreted and used. Here are some of my  possible scenarios:\n",
+        "\n",
+        "The insights may help create a positive business impact if they are used to optimize the service and marketing strategies for the customers. For example, the business can use the information about the cluster and correlation of the data points to segment the customers into different groups based on their usage patterns, and offer them differentiated plans and incentives that suit their needs and preferences. The business can also use the information about the nonlinear relationship of the data points to identify the factors that influence the customer behavior and satisfaction, such as the quality, value, and competitiveness of the service.\n",
+        "The insights may lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the cluster and correlation of the data points mean that the customers are happy and loyal with the current service, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer more attractive or diverse plans and features. The business may also disregard the nonlinear relationship of the data points fail to recognize the changing needs and preferences of the customers, and miss the opportunities to improve and retain the customers who are at risk of churning."
+      ],
+      "metadata": {
+        "id": "xvSq8iUTphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 8"
+      ],
+      "metadata": {
+        "id": "BZR9WyysphqO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 8 visualization code\n",
+        "df_temp['Total minutes'].plot(kind='density')\n"
+      ],
+      "metadata": {
+        "id": "TdPTWpAVphqO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "jj7wYXLtphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a density plot because it is a smooth version of a histogram that estimates the probability density function of a numerical variable (Total minutes) and shows its shape and mode."
+      ],
+      "metadata": {
+        "id": "Ob8u6rCTphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "eZrbJ2SmphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The density plot shows the distribution of the total minutes spent by the customers on the phone. The plot is skewed to the right, meaning that most of the customers spent less than the average time, but some outliers spent much more time. The plot also has two peaks, indicating that there are two groups of customers with different patterns of phone usage. One possible insight is that the company can segment the customers based on their total minutes and offer different plans or incentives to each group."
+      ],
+      "metadata": {
+        "id": "mZtgC_hjphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "rFu4xreNphqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights from the density plot of the total minutes may help or hinder the business impact depending on how they are interpreted and used. Here are some possible scenarios:\n",
+        "\n",
+        "The insights may help create a positive business impact if they are used to understand customer behaviour and preferences for the total minutes. For example, the business can use the information about the skewness and bimodality of the distribution to segment the customers into different groups based on their usage patterns, and offer them differentiated plans and incentives that suit their needs and preferences.\n",
+        "The insights may lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the skewness and bimodality of the distribution mean that the customers are not interested or satisfied with the total minutes service, and decide to reduce the quality or quantity of the total minutes service. This may cause the customers to switch to the competitors who offer better or cheaper total minutes service, and result in a loss of revenue and reputation."
+      ],
+      "metadata": {
+        "id": "ey_0qi68phqO"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 9"
+      ],
+      "metadata": {
+        "id": "YJ55k-q6phqO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 9 visualization code\n",
+        "pd.plotting.scatter_matrix(df_temp[['Total minutes', 'Total charge', 'Total calls']])\n"
+      ],
+      "metadata": {
+        "id": "B2aS4O1ophqO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "gCFgpxoyphqP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a scatter matrix because it is a handy way to visualize the pairwise relationships and distributions of multiple numerical variables (Total minutes, Total charge, and Total calls) in a single figure."
+      ],
+      "metadata": {
+        "id": "TVxDimi2phqP"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "OVtJsKN_phqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Some possible insights from the chart are:\n",
+        "\n",
+        "Positive correlation: There is a strong positive correlation between Total minutes and Total charge, meaning that the more minutes a customer uses, the higher the charge they pay. There is also a moderate positive correlation between Total minutes and Total calls, and between Total charges and Total calls, meaning that the more minutes or charges a customer has, the more calls they make.\n",
+        "Normal distribution: The histograms along the diagonal of the matrix show that the three variables are approximately normally distributed, meaning that they have a bell-shaped curve with most values clustered around the mean and fewer values at the extremes.\n",
+        "Outliers: There are some outliers in the data, such as customers who have very high Total minutes or Total charges, or very low Total calls. These outliers may indicate some errors in the data collection or some special cases that need further investigation."
+      ],
+      "metadata": {
+        "id": "ngGi97qjphqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "lssrdh5qphqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights may help create a positive business impact if they are used to optimize the service and marketing strategies for the customers. For example, the business can use the information about the positive correlation between the variables to segment the customers into different groups based on their usage patterns and offer them differentiated plans and incentives that suit their needs and preferences. The business can also use the information about the normal distribution of the variables to identify the average and target customers, and design the service and pricing accordingly.\n",
+        "The insights may lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the positive correlation and normal distribution of the variables mean that the customers are happy and loyal with the current service, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer more attractive or diverse plans and features. The business may also disregard the outliers in the data and fail to recognize the special needs and preferences of some customers, and miss the opportunities to improve and retain them."
+      ],
+      "metadata": {
+        "id": "tBpY5ekJphqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 10"
+      ],
+      "metadata": {
+        "id": "U2RJ9gkRphqQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Chart - 10 visualization code\n",
+        "pd.plotting.bootstrap_plot(df_temp['Total day minutes'])\n"
+      ],
+      "metadata": {
+        "id": "GM7a4YP4phqQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "1M8mcRywphqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "I picked a bootstrap plot because it is a statistical method to estimate the uncertainty and variability of a numerical variable (Total day minutes) by resampling the data with replacement and computing summary statistics."
+      ],
+      "metadata": {
+        "id": "8agQvks0phqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "tgIPom80phqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Some possible insights from the chart are:\n",
+        "\n",
+        "The mean, median and mid-range of the total day minutes are close to each other, around 175 minutes. This means that the average usage of the day minutes is stable and consistent across the samples.\n",
+        "The mean, median and mid-range of the total day minutes have similar distributions, with most values clustered around the centre and fewer values at the extremes. This means that the variability and uncertainty of the average usage of the day minutes is low and similar across the samples.\n",
+        "The mean, median and mid-range of the total day minutes have no obvious outliers, as there are no isolated dots beyond the whiskers. This means that there are no extreme values that deviate significantly from the average usage of the day minutes."
+      ],
+      "metadata": {
+        "id": "Qp13pnNzphqQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 3. Will the gained insights help creating a positive business impact?\n",
+        "Are there any insights that lead to negative growth? Justify with specific reason."
+      ],
+      "metadata": {
+        "id": "JMzcOPDDphqR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The insights may help create a positive business impact if they are used to understand the uncertainty and variability of the average usage of the day minutes. For example, the business can use the information about the closeness and similarity of the mean, median and mid-range of the total day minutes to estimate the confidence interval and standard error of the average usage and use them to make informed decisions and predictions about the service and pricing. The business can also use the information about the absence of outliers in the total day minutes to validate the quality and reliability of the data and the service.\n",
+        "The insights may lead to negative growth if they are overlooked or ignored by the business. For example, the business may assume that the closeness and similarity of the mean, median and mid-range of the total day minutes mean that the average usage is fixed and static, and decide to neglect the innovation and differentiation of the service. This may cause the customers to lose interest or trust in the business, and switch to the competitors who offer more attractive or diverse plans and features. The business may also disregard the uncertainty and variability of the average usage of the day minutes and fail to recognize the changing needs and preferences of the customers, and miss the opportunities to improve and retain them."
+      ],
+      "metadata": {
+        "id": "R4Ka1PC2phqR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 11 - Correlation Heatmap"
+      ],
+      "metadata": {
+        "id": "NC_X3p0fY2L0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Correlation Heatmap visualization code\n",
+        "# import libraries\n",
+        "import matplotlib.pyplot as plt\n",
+        "# convert all columns to numeric values\n",
+        "df_temp = df_churn_row.apply(pd.to_numeric, errors='coerce')\n",
+        "# calculate the correlation matrix\n",
+        "correlation_matrix = df.corr()\n",
+        "# plot the heatmap\n",
+        "plt.figure(figsize=(15, 10))\n",
+        "sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm')\n",
+        "plt.title('Correlation Matrix of Telecom Data')\n",
+        "plt.show()\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "xyC9zolEZNRQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "UV0SzAkaZNRQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The heatmap provides a visual representation of the correlation coefficients between pairs of variables. Darker red colours indicate a stronger positive correlation, while darker blue colours indicate a stronger negative correlation. This can help identify which features are most related to churn and each other, which is valuable for understanding the underlying patterns in the data and for feature selection in predictive modelling."
+      ],
+      "metadata": {
+        "id": "DVPuT8LYZNRQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "YPEH6qLeZNRQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The variables that have a high positive correlation (close to 1) are shown in red, while the variables that have a low or negative correlation (close to 0 or -1) are shown in blue. This helps to identify the variables that are strongly or weakly related to each other.\n",
+        "The variables that have the highest positive correlation are Total day minutes and Total day charge, Total eve minutes and Total eve charge, Total night minutes and Total night charge, and Total intl minutes and Total intl charge. This means that these pairs of variables have a strong linear relationship, and they increase or decrease together proportionally. This is expected, as the charge is calculated based on the minutes for each category.\n",
+        "The variables that have the lowest or negative correlation are Total day minutes and Total night minutes, Total day charge and Total night charge, Total day calls and Total night calls, and Total day calls and Total night minutes. This means that these pairs of variables have a weak or inverse linear relationship, and they do not change together or change in opposite directions. This may indicate that the customers have different preferences and patterns for using the phone during the day and night.\n",
+        "The diagonal of the matrix shows the correlation of each variable with itself, which is always 1. These cells are not useful for interpretation, as they do not show any relationship between different variables."
+      ],
+      "metadata": {
+        "id": "bfSqtnDqZNRR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Chart - 12 - Pair Plot"
+      ],
+      "metadata": {
+        "id": "q29F0dvdveiT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Pair Plot visualization code\n",
+        "# Selecting a subset of variables for the pair plot to keep it interpretable\n",
+        "subset_df = df_temp[['Total day minutes', 'Total eve minutes', 'Total night minutes', 'Total intl minutes', 'Churn']]\n",
+        "\n",
+        "# Convert 'Churn' to a categorical type for better plotting\n",
+        "subset_df['Churn'] = subset_df['Churn'].astype('category')\n",
+        "\n",
+        "# Create the pair plot\n",
+        "sns.pairplot(subset_df, hue='Churn', palette='Set1')\n",
+        "plt.show()\n"
+      ],
+      "metadata": {
+        "id": "o58-TEIhveiU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 1. Why did you pick the specific chart?"
+      ],
+      "metadata": {
+        "id": "EXh0U9oCveiU"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "To visualize the relationships between different variables in the telecom dataset, I will create a pair plot. This will include a subset of variables to keep the visualization interpretable. Let's focus on the following variables: 'Total day minutes', 'Total eve minutes', 'Total night minutes', 'Total intl minutes', and 'Churn'. I will encode 'Churn' as a hue to see how these variables relate to customer churn. Let's proceed with creating the pair plot."
+      ],
+      "metadata": {
+        "id": "eMmPjTByveiU"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### 2. What is/are the insight(s) found from the chart?"
+      ],
+      "metadata": {
+        "id": "22aHeOlLveiV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The variables that have a high positive correlation (close to 1) are shown in red, while the variables that have a low or negative correlation (close to 0 or -1) are shown in blue. This helps to identify the variables that are strongly or weakly related to each other.\n",
+        "The variables that have the highest positive correlation are Total day minutes and Total day charge, Total eve minutes and Total eve charge, Total night minutes and Total night charge, and Total intl minutes and Total intl charge. This means that these pairs of variables have a strong linear relationship, and they increase or decrease together proportionally. This is expected, as the charge is calculated based on the minutes for each category.\n",
+        "The variables that have the lowest or negative correlation are Total day minutes and Total night minutes, Total day charge and Total night charge, Total day calls and Total night calls, and Total day calls and Total night minutes. This means that these pairs of variables have a weak or inverse linear relationship, and they do not change together or change in opposite directions. This may indicate that the customers have different preferences and patterns for using the phone during the day and night.\n",
+        "The diagonal of the matrix shows the distribution of each variable, which is approximately normally distributed, meaning that they have a bell-shaped curve with most values clustered around the mean and fewer values at the extremes.\n",
+        "The hue parameter shows the difference between the churned and non-churned customers, which is indicated by the colour of the dots. The chart shows that the churned customers tend to have higher values for the total minutes and charges than the non-churned customers, which may imply that the customers who left the service were dissatisfied with the pricing or quality of the service."
+      ],
+      "metadata": {
+        "id": "uPQ8RGwHveiV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## **5. Solution to Business Objective**"
+      ],
+      "metadata": {
+        "id": "JcMwzZxoAimU"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### What do you suggest the client to achieve Business Objective ?\n",
+        "Explain Briefly."
+      ],
+      "metadata": {
+        "id": "8G2x9gOozGDZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "To reduce customer churn in the telecom industry, several strategies can be implemented. One strategy is to make better use of data. Telecom companies can utilize their internal data to gain a better understanding of their customers and personalize their offerings. This can help improve customer retention. Another strategy is to ensure efficient customer care. By providing excellent customer service and addressing customer concerns promptly, telecom companies can enhance customer satisfaction and loyalty. Investing in new technologies is also crucial. By adopting innovative technologies, telecom companies can improve their services and stay competitive in the market. Lastly, creating a memorable customer experience is essential. Telecom companies should focus on delivering exceptional experiences that leave a lasting impression on customers. By implementing these strategies, telecom companies can reduce churn rates and maintain a stable and high-quality relationship with their customers\n",
+        "Make Better Use of Data: Leverage analytics to understand customer behavior and preferences. Personalize services and offers to meet customer needs more effectively.\n",
+        "Ensure Efficient Customer Care: Provide excellent customer service to address issues promptly and improve overall customer satisfaction.\n",
+        "Invest in New Technologies: Stay competitive by adopting the latest technologies that can enhance service quality and customer experience.\n",
+        "Create a Memorable Customer Experience: Focus on delivering exceptional service that exceeds customer expectations and fosters loyalty.\n",
+        "Collect Customer Feedback: Use surveys, such as NPS (Net Promoter Score), to gather insights on customer satisfaction and areas for improvement.\n",
+        "Listen to Customers: Act on feedback and show customers that their opinions are valued and lead to tangible changes."
+      ],
+      "metadata": {
+        "id": "pASKb0qOza21"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Conclusion**"
+      ],
+      "metadata": {
+        "id": "gCX9965dhzqZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "In conclusion, to address the business objective of reducing customer churn in the telecom industry, the client should consider implementing a multi-faceted strategy that includes:\n",
+        "\n",
+        "Utilizing data analytics to gain insights into customer behavior and preferences, allowing for personalized and targeted service offerings.\n",
+        "Providing efficient and responsive customer care to address issues quickly and improve customer satisfaction.\n",
+        "Investing in new technologies to enhance service quality and offer innovative solutions that meet modern customer demands.\n",
+        "Creating memorable customer experiences that exceed expectations and foster brand loyalty.\n",
+        "Collecting and acting on customer feedback to continuously improve services and demonstrate that customer opinions are valued.\n",
+        "By focusing on these areas, the client can work towards improving customer retention, reducing churn rates, and maintaining a competitive edge in the telecom industry."
+      ],
+      "metadata": {
+        "id": "Fjb1IsQkh3yE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### ***Hurrah! You have successfully completed your EDA Capstone Project !!!***"
+      ],
+      "metadata": {
+        "id": "gIfDvo9L0UH2"
+      }
+    }
+  ]
+}
